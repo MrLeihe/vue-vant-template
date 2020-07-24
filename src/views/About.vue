@@ -12,10 +12,6 @@ export default {
     console.log("params:", to.params);
     next();
   },
-  mounted() {
-    console.log("options:", this.$options);
-    console.log("router:", this.$options.router);
-  },
   methods: {
     handleRoute() {
       history.replaceState({ page: 1 }, "about page", "/about");
