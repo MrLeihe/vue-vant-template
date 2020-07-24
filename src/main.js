@@ -14,11 +14,3 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount("#app");
-
-window.addEventListener("popstate", event => {
-  console.log("onpopstate", event);
-});
-
-window.addEventListener("load", () => {
-  console.log("currentState", history.state);
-});
