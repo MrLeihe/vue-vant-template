@@ -19,12 +19,9 @@ export default {
     console.log("params:", to.params);
     next();
   },
-<<<<<<< HEAD
-=======
   mounted() {
     console.log("_router:", this.$router.history.current === this.$route);
   },
->>>>>>> ef4a0a2... router test
   methods: {
     handleRoute() {
       history.pushState({ page: 1 }, "about page", "/about");
