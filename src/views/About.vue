@@ -1,20 +1,33 @@
 <template>
   <div class="about">
+    <nav-bar></nav-bar>
     <h1>This is an about page</h1>
     <button @click="handleRoute">点击</button>
-    <nav-bar></nav-bar>
   </div>
 </template>
 
 <script>
 export default {
+  name: "about",
+  data: () => {
+    return {
+      a: "stone"
+    };
+  },
+  customOption: "foo",
   beforeRouteUpdate(to, from, next) {
     console.log("params:", to.params);
     next();
   },
+<<<<<<< HEAD
+=======
+  mounted() {
+    console.log("_router:", this.$router.history.current === this.$route);
+  },
+>>>>>>> ef4a0a2... router test
   methods: {
     handleRoute() {
-      history.replaceState({ page: 1 }, "about page", "/about");
+      history.pushState({ page: 1 }, "about page", "/about");
     }
   }
 };

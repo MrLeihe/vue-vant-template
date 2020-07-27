@@ -14,3 +14,7 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount("#app");
+
+window.addEventListener("popstate", event => {
+  console.log("popstate:", event);
+});
