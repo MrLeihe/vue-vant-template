@@ -1,30 +1,48 @@
 <template>
   <div class="about">
-    <nav-bar></nav-bar>
-    <h1>This is an about page</h1>
-    <button @click="handleRoute">点击</button>
+    <div>
+      <button id="button" @click="handleClick">change</button>
+      <span id="name">{{ name }}</span>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "about",
-  data: () => {
+  data() {
     return {
-      a: "stone"
+      name: ""
     };
   },
-  customOption: "foo",
-  beforeRouteUpdate(to, from, next) {
-    console.log("params:", to.params);
-    next();
+  created() {
+    console.log("root--about->", this.$root.$data);
   },
   mounted() {
-    console.log("_router:", this.$router.history.current === this.$route);
+    this.nameNode = document.getElementById("name");
+    this.button = document.getElementById("button");
+    const mutationObserver = new MutationObserver((mutationList, observer) => {
+      console.log("mutate--->", mutationList, observer);
+    });
+    mutationObserver.observe(this.nameNode, {
+      attributes: true
+    });
+
+    this.button.click();
   },
   methods: {
-    handleRoute() {
-      history.pushState({ page: 1 }, "about page", "/about");
+    handleClick() {
+      console.log("handleClick");
+
+      Promise.resolve().then(() => {
+        console.log("promise");
+      });
+
+      setTimeout(() => {
+        console.log("setTimeout");
+      }, 0);
+
+      this.nameNode.setAttribute("name", "stone");
+      this.nameNode.setAttribute("haha", "test");
     }
   }
 };
