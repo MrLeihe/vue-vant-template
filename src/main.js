@@ -15,6 +15,4 @@ new Vue({
   render: h => h(App)
 }).$mount("#app");
 
-window.addEventListener("popstate", event => {
-  console.log("popstate:", event);
-});
+console.log("version:", process.env.VUE_APP_VERSION);

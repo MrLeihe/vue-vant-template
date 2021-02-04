@@ -1,11 +1,7 @@
 <template>
   <div class="loading">
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
     <div class="loading-text">加载中...</div>
+    <div>{{ childName }}</div>
   </div>
 </template>
 
@@ -14,7 +10,23 @@
 
 export default {
   name: "Loading",
-  components: {}
+  props: {
+    childName: {
+      type: String,
+      default: ""
+    }
+  },
+  computed: {
+    displayName() {
+      return this.childName;
+    }
+  },
+  beforeUpdate() {
+    console.log("beforeUpdate--child:");
+  },
+  updated() {
+    console.log("updated--child:");
+  }
 };
 </script>
 
