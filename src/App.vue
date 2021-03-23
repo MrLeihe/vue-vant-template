@@ -10,6 +10,18 @@
   </div>
 </template>
 
+<script>
+import VConsole from "vconsole";
+console.log("haha");
+export default {
+  mounted() {
+    console.log("VConsole", VConsole);
+    var vconsole = new VConsole();
+    console.log("test vconsole");
+  }
+};
+</script>
+
 <style lang="less">
 body {
   margin: 0;
@@ -23,7 +35,7 @@ body {
 
   // 横屏
   @media all and (orientation: landscape) {
-    background: gold;
+    // background: gold;
   }
 
   // 竖屏
